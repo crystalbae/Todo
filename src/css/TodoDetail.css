@@ -1,0 +1,186 @@
+#todo-detail-page {
+  background-color: white;
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  border: 1px solid transparent;
+  border-left-color: lightgray;
+  border-radius: 5px;
+  padding: 10px;
+  left: -50%;
+  position: relative;
+  opacity: 0;
+}
+
+#todo-detail-page.active {
+  opacity: 1;
+  left: 0;
+  animation: showSubtask 0.3s ease;
+}
+
+@keyframes showSubtask {
+  from { left: -50% }
+  to   { left: 0%;}
+}
+
+.Detail {
+  height: 100%;
+  overflow: scroll;
+}
+
+.Detail h1 {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #F0F0F0;
+  position: relative;
+}
+
+.Detail h1 span.glyphicon {
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.Detail h1 span#detail-title {
+  display: none;
+}
+
+.Detail h1 span#detail-title.active {
+  font-size: 25px;
+  line-height: 33px;
+  display: inline-block;
+}
+
+.Detail form#temporary-form {
+  width: 100%;
+  display: none;
+}
+
+.Detail form#temporary-form.active {
+  display: inline-block;
+}
+
+.Detail input#temporary-input {
+  display: inline-block;
+  font-size: 25px;
+  border: none;
+  width: 90%;
+}
+
+.Detail input#temporary-input.active {
+  /*display: inline-block;*/
+  font-size: 25px;
+  border: none;
+}
+
+.Detail input#temporary-input:focus {
+  outline: none;
+}
+
+.Detail input#editDone-btn {
+  font-size: 20px;
+  line-height: 20px;
+  border: none;
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+
+.Detail input#editDone-btn.active {
+  background-color: lightblue;
+  color: #fff;
+  animation: title-edit-save 0.3s ease;
+}
+
+@keyframes title-edit-save {
+  from { background-color: #F5F5F5; color: black; }
+  to   { background-color: lightblue; color: #fff;}
+}
+
+.Detail h2 {
+  font-size: 15px;
+  font-style: italic;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.Detail button.close-btn {
+  width: 40px;
+  top: 5px;
+  right: 0px;
+  font-size: 20px;
+  color: darkgray;
+  border: none;
+  position: absolute;
+  background-color: transparent;
+}
+
+.Detail button.close-btn:hover {
+  cursor: pointer;
+}
+
+.Detail form input.subtask {
+  border-radius: 5px;
+  border: 1px solid #EBEBEB;
+  width: 100%;
+  height: 35px;
+  padding: 7px;
+  background-color: #EDEDED;
+  border: none;
+  animation: subtask-focus-out 0.3s ease;
+}
+
+@keyframes subtask-focus-out {
+  from { background-color: white; }
+  to   { background-color: #EDEDED; }
+}
+
+.Detail form input.subtask:focus {
+  background-color: white;
+  border: 1px solid #EDEDED;
+  outline: none;
+  animation: subtask-input-focus 0.3s ease;
+}
+
+@keyframes subtask-input-focus {
+  from { background-color: #EDEDED; }
+  to   { background-color: white; }
+}
+
+.Detail ul {
+  padding-left: 0px;
+  margin-top: 10px;
+  /*margin-left: 15px;*/
+}
+
+.Detail li {
+  width: 100%;
+  line-height: 30px;
+  border-bottom: 1px dotted #EDEDED;
+  margin-bottom: 5px;
+  position: relative;
+  display: inline-block;
+  color: #4A4A4A;
+}
+
+.Detail li:before {
+    content: "•";
+    padding-right: 5px;
+    color: dimgray;
+}
+
+.Detail li span.list-sign {
+  font-size: 10px;
+  margin-right: 5px;
+  color: #5C5C5C;
+}
+
+.Detail li button.delete-btn {
+  width: 20px;
+  float: right;
+  border: none;
+  background: none;
+  margin-right: 10px;
+  color: gray;
+}

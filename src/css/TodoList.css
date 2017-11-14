@@ -1,0 +1,138 @@
+.todo-list-page {
+  background-color: white;
+  width: 50%;
+  height: 100%;
+  border: 1px solid transparent;
+  float: left;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 7px;
+  padding-bottom: 55px;
+  position: relative;
+  z-index: 2;
+}
+
+.TodoAdd {
+  margin-bottom: 7px;
+}
+
+.TodoAdd form input {
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  background-color: #EDEDED;
+  border: none;
+  animation: focus-out 0.3s ease;
+}
+
+@keyframes focus-out {
+  from { background-color: white; }
+  to   { background-color: #EDEDED; }
+}
+
+.TodoAdd form input:focus {
+  background-color: white;
+  border: 1px solid #EDEDED;
+  outline: none;
+  animation: input-focus 0.3s ease;
+}
+
+@keyframes input-focus {
+  from { background-color: #EDEDED; }
+  to   { background-color: white; }
+}
+
+.Todo {
+  height: 100%;
+  overflow: scroll;
+  position: relative;
+  background-color: lavenderblush;
+  border-radius: 5px;
+  padding: 10px 10px 20px 10px;
+}
+
+.Todo h2 {
+  font-weight: 700;
+}
+
+.Todo h2 span {
+  font-size: 25px
+}
+
+.Todo ul {
+  padding: 0;
+  font-size: 18px;
+  min-height: 40px;
+  line-height: 30px;
+  margin: 0;
+}
+
+.Todo li {
+  list-style: none;
+  border-bottom: 1px solid lightgray;
+  cursor: grab;
+  background: white;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  position: relative;
+  display: block;
+  overflow: scroll;
+  z-index: 1000;
+}
+
+.Todo li.active {
+  border-top: 10px solid lightgray;
+  border-radius: 0;
+}
+
+.Todo li#hidden-field {
+  box-sizing: content-box;
+  border-bottom: none;
+  background-color: transparent;
+  padding: 0;
+  height: 30px;
+}
+
+.Todo li input.checkbox {
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.Todo li span {
+  position: relative;
+  z-index: -1000;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.Todo li span.active {
+  color: lightgray;
+  text-decoration: line-through;
+}
+
+.Todo li span.subtask-length {
+  font-size: 12px;
+  color: #C4C4C4;
+}
+
+.Todo button.delete-btn {
+  visibility: hidden;
+  width: 25px;
+  float: right;
+  border: none;
+  background: none;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 0;
+  z-index: 1;
+}
+
+.Todo button.delete-btn.active {
+  visibility: visible;
+}
+
+.Todo button.delete-btn.active:hover {
+  cursor: pointer;
+}
