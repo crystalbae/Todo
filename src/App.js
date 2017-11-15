@@ -66,9 +66,14 @@ class App extends Component {
   }
 
   dragStartHandler(e) {
-    let data = parseInt(e.target.className, 10);
-    e.dataTransfer.setData("text/plain", data);
-    e.dataTransfer.dropEffect = "move";
+    if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+      let data = e.target.className;
+      e.dataTransfer.setData("text/plain", data);
+    } else {
+      let data = parseInt(e.target.className, 10);
+      e.dataTransfer.setData("text/plain", data);
+    }
+    // e.dataTransfer.dropEffect = "move";
   }
 
   dragOverHandler(e) {
