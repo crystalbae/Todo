@@ -84,13 +84,19 @@ class Todo extends Component {
               selectedTodo: null
             }, () => {
               this.props.onRemove(this.state.todoList, this.state.count, this.state.selectedTodo, false);
-              document.getElementById("todo-detail-page").animate([
-                { left: '0%' },
-                { left: '-50%' }
-              ], 200).addEventListener('finish', function() {
+
+              if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
                 document.getElementById("todo-detail-page").style.left = '-50%';
                 document.getElementById("todo-detail-page").classList.remove("active");
-              });
+              } else {
+                document.getElementById("todo-detail-page").animate([
+                  { left: '0%' },
+                  { left: '-50%' }
+                ], 200).addEventListener('finish', function() {
+                  document.getElementById("todo-detail-page").style.left = '-50%';
+                  document.getElementById("todo-detail-page").classList.remove("active");
+                });
+              }
             });
           } else if (this.props.selectedTodo.index > index) {
             this.setState({
@@ -125,13 +131,18 @@ class Todo extends Component {
               }),
               selectedTodo: null
             }, () => {
-              document.getElementById("todo-detail-page").animate([
-                { left: '0%' },
-                { left: '-50%' }
-              ], 200).addEventListener('finish', function() {
+              if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
                 document.getElementById("todo-detail-page").style.left = '-50%';
                 document.getElementById("todo-detail-page").classList.remove("active");
-              });
+              } else {
+                document.getElementById("todo-detail-page").animate([
+                  { left: '0%' },
+                  { left: '-50%' }
+                ], 200).addEventListener('finish', function() {
+                  document.getElementById("todo-detail-page").style.left = '-50%';
+                  document.getElementById("todo-detail-page").classList.remove("active");
+                });
+              }
               this.props.selectTodo(this.state.selectedTodo, this.state.todoList, false);
             });
           } else { // 이미 선택 된 todo가 있을 경우 & 다른 todo를 선택
@@ -150,13 +161,19 @@ class Todo extends Component {
               [index]: { "isSelected": { $set: true } }
             })
           }, () => {
-            document.getElementById("todo-detail-page").animate([
-              { left: '-50%' },
-              { left: '0%' }
-            ], 100).addEventListener('finish', function() {
+            if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
               document.getElementById("todo-detail-page").style.left = '0%';
               document.getElementById("todo-detail-page").classList.add("active");
-            });
+            } else {
+              document.getElementById("todo-detail-page").animate([
+                { left: '-50%' },
+                { left: '0%' }
+              ], 100).addEventListener('finish', function() {
+                document.getElementById("todo-detail-page").style.left = '0%';
+                document.getElementById("todo-detail-page").classList.add("active");
+              });
+            }
+
             this.props.selectTodo(this.state.selectedTodo, this.state.todoList, true);
           });
         }

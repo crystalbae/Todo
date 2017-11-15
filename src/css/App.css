@@ -5,3 +5,18 @@
   height: 100%;
   background-color: lightblue;
 }
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+  .Todo, .Todo li {
+    -ms-overflow-style: none;
+  }
+}
+
+@supports (-ms-accelerator:true) {
+  /* IE Edge 12+ CSS styles go here */
+  .Todo, .Todo li  {
+    -ms-overflow-style: none;
+  }
+}
