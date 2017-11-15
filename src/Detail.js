@@ -33,14 +33,19 @@ class Detail extends Component {
         })
       }, () => {
         this.props.selectTodo(this.state.selectedTodo, this.state.todoList, false);
-        document.getElementById("todo-detail-page").animate([
-          { left: '0%' },
-          { left: '-50%' }
-        ], 200).addEventListener('finish', function() {
+
+        if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
           document.getElementById("todo-detail-page").style.left = '-50%';
           document.getElementById("todo-detail-page").classList.remove("active");
-        });
-        // document.getElementById("todo-detail-page").classList.remove("active");
+        } else {
+          document.getElementById("todo-detail-page").animate([
+            { left: '0%' },
+            { left: '-50%' }
+          ], 200).addEventListener('finish', function() {
+            document.getElementById("todo-detail-page").style.left = '-50%';
+            document.getElementById("todo-detail-page").classList.remove("active");
+          });
+        }
       });
     });
   }
