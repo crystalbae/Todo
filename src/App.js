@@ -67,7 +67,7 @@ class App extends Component {
 
   dragStartHandler(e) {
     let data = parseInt(e.target.className, 10);
-    e.dataTransfer.setData("text", data);
+    e.dataTransfer.setData("text/plain", data);
     e.dataTransfer.dropEffect = "move";
   }
 
