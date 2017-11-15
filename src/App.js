@@ -68,17 +68,17 @@ class App extends Component {
   dragStartHandler(e) {
     if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent) || /Edge\/\d./i.test(navigator.userAgent)) {
       let data = e.target.className;
-      e.dataTransfer.setData("text/plain", data);
+      e.dataTransfer.setData("text", data);
     } else {
       let data = parseInt(e.target.className, 10);
-      e.dataTransfer.setData("text/plain", data);
+      e.dataTransfer.setData("text", data);
     }
     // e.dataTransfer.dropEffect = "move";
   }
 
   dragOverHandler(e) {
     e.preventDefault(); // html 요소에 뭔가를 드롭했을 때 아무 일도 일어나지 않도록 함.
-    e.dataTransfer.dropEffect = "move";
+    // e.dataTransfer.dropEffect = "move";
   }
 
   dragEnterHandler(e) {
