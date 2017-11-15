@@ -66,7 +66,7 @@ class App extends Component {
   }
 
   dragStartHandler(e) {
-    if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+    if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent) || /Edge\/\d./i.test(navigator.userAgent)) {
       let data = e.target.className;
       e.dataTransfer.setData("text/plain", data);
     } else {

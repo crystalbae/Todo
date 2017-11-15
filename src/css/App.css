@@ -26,7 +26,7 @@
   }
 }
 
-@supports (-ms-accelerator:true) {
+@supports (-ms-ime-align: auto) {
   /* IE Edge 12+ CSS styles go here */
   .Todo, .Todo li, .Detail  {
     -ms-overflow-style: none;

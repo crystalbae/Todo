@@ -85,7 +85,7 @@ class Todo extends Component {
             }, () => {
               this.props.onRemove(this.state.todoList, this.state.count, this.state.selectedTodo, false);
 
-              if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+              if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent) || /Edge\/\d./i.test(navigator.userAgent)) {
                 document.getElementById("todo-detail-page").style.left = '-50%';
                 document.getElementById("todo-detail-page").classList.remove("active");
               } else {
@@ -131,7 +131,7 @@ class Todo extends Component {
               }),
               selectedTodo: null
             }, () => {
-              if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+              if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent) || /Edge\/\d./i.test(navigator.userAgent)) {
                 document.getElementById("todo-detail-page").style.left = '-50%';
                 document.getElementById("todo-detail-page").classList.remove("active");
               } else {
@@ -161,7 +161,7 @@ class Todo extends Component {
               [index]: { "isSelected": { $set: true } }
             })
           }, () => {
-            if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+            if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent) || /Edge\/\d./i.test(navigator.userAgent)) {
               document.getElementById("todo-detail-page").style.left = '0%';
               document.getElementById("todo-detail-page").classList.add("active");
             } else {

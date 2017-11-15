@@ -34,7 +34,7 @@ class Detail extends Component {
       }, () => {
         this.props.selectTodo(this.state.selectedTodo, this.state.todoList, false);
 
-        if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+        if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent) || /Edge\/\d./i.test(navigator.userAgent)) {
           document.getElementById("todo-detail-page").style.left = '-50%';
           document.getElementById("todo-detail-page").classList.remove("active");
         } else {
